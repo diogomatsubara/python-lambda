@@ -47,6 +47,10 @@ def load_source(module_name, module_path):
         import importlib.machinery
         loader = importlib.machinery.SourceFileLoader(module_name, module_path)
         module = loader.load_module()
+
+    elif sys.version_info[0] == 2 and sys.version_info[1] == 7:
+        import importlib
+        module = importlib.import_module(module_name)
     return module
 
 

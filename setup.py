@@ -1,8 +1,10 @@
 """This module contains setup instructions for python-lambda."""
+
 import codecs
 import os
 import sys
 from shutil import rmtree
+
 
 from setuptools import Command
 from setuptools import find_packages
@@ -33,7 +35,8 @@ class UploadCommand(Command):
     @staticmethod
     def status(s):
         """Print in bold."""
-        print(f"\033[1m{s}\033[0m")
+        #print(f"\033[1m{s}\033[0m")
+        print("\033[1m{}\033[0m".format(s))
 
     def initialize_options(self):
         """Initialize options."""
@@ -51,7 +54,8 @@ class UploadCommand(Command):
         except Exception:
             pass
         self.status("Building Source distribution ...")
-        os.system(f"{sys.executable} setup.py sdist")
+#        os.system(f"{sys.executable} setup.py sdist")
+        os.system("{} setup.py sdist".format(sys.executable))
         self.status("Uploading the package to PyPI via Twine ...")
         os.system("twine upload dist/*")
         sys.exit()

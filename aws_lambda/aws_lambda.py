@@ -98,7 +98,7 @@ def cleanup_old_versions(
                         Qualifier=version_number,
                     )
                 except botocore.exceptions.ClientError as e:
-                    print(f"Skipping Version {version_number}: {e}")
+                    print("Skipping Version {}: {}".format(version_number, e))
 
 
 def deploy(

@@ -478,6 +478,7 @@ def _install_packages(path, packages):
                 "-t",
                 path,
                 "--ignore-installed",
+                "--upgrade",
             ]
         )
     print(

@@ -477,7 +477,7 @@ def _install_packages(path, packages):
                 package,
                 "-t",
                 path,
-                "--ignore-installed",
+                "--force-reinstall",
                 "--upgrade",
             ]
         )

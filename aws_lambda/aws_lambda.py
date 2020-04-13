@@ -16,7 +16,6 @@ from tempfile import mkdtemp
 import boto3
 import botocore
 import yaml
-import sys
 
 from .helpers import archive
 from .helpers import get_environment_variable_value
@@ -475,9 +474,9 @@ def _install_packages(path, packages):
                 "pip",
                 "install",
                 package,
-                "-t",
+                "--prefix",
                 path,
-                "--force-reinstall",
+                "--ignore-installed",
                 "--upgrade",
             ]
         )

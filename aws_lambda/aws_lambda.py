@@ -474,7 +474,7 @@ def _install_packages(path, packages):
                 "pip",
                 "install",
                 package,
-                "--prefix",
+                "--target",
                 path,
                 "--ignore-installed",
                 "--upgrade",
